@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/SideBar";
 
 const ProjectList = () => {
@@ -6,6 +7,7 @@ const ProjectList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showSidebar, setShowSidebar] = useState(true);
+  const navigate=useNavigate()
 
   // For editing modal
   const [editingProject, setEditingProject] = useState(null); // project object or null
@@ -105,7 +107,7 @@ const ProjectList = () => {
     localStorage.clear();
     alert("Logged out successfully!");
     // add navigate if you are using react-router-dom's useNavigate()
-    // navigate("/");
+     navigate("/");
   };
 
   if (loading) {
