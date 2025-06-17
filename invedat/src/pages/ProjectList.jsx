@@ -33,7 +33,7 @@ const ProjectList = () => {
       setError(null);
 
       try {
-        const response = await fetch(`http://localhost:5000/api/projects/${userId}`);
+        const response = await fetch(`https://invedat.onrender.com/api/projects/${userId}`);
 
         if (!response.ok) {
           throw new Error(`Error fetching projects: ${response.statusText}`);
@@ -78,7 +78,7 @@ const ProjectList = () => {
     if (!editingProject) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/projects/${editingProject._id}`, {
+      const response = await fetch(`https://invedat.onrender.com/api/projects/${editingProject._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

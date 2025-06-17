@@ -14,7 +14,7 @@ const InvestmentTracking = () => {
     const fetchProjects = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/api/projects");
+        const response = await axios.get("https://invedat.onrender.com/api/projects");
         setProjects(response.data.projects || []);
         setError(null);
       } catch (err) {

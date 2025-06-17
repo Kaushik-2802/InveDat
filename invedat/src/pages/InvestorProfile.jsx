@@ -26,7 +26,7 @@ const InvestorProfile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/investor-profile/${userId}`);
+        const res = await axios.get(`https://invedat.onrender.com/api/investor-profile/${userId}`);
         if (res.data.profile) {
           const p = res.data.profile;
           setExistingProfile(p);
@@ -101,7 +101,7 @@ const InvestorProfile = () => {
     try {
       if (existingProfile) {
         // Update existing profile
-        const res = await axios.put(`http://localhost:5000/api/investor-profile/${existingProfile._id}`, payload, {
+        const res = await axios.put(`https://invedat.onrender.com/api/investor-profile/${existingProfile._id}`, payload, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -126,7 +126,7 @@ const InvestorProfile = () => {
         setIsEditing(false);
       } else {
         // Create new profile
-        const res = await axios.post("http://localhost:5000/api/investor-profile", payload, {
+        const res = await axios.post("https://invedat.onrender.com/api/investor-profile", payload, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -433,7 +433,7 @@ const InvestorProfile = () => {
             <div style={styles.profileImageSection}>
               {existingProfile.profilePhoto?.filePath ? (
                 <img
-                  src={`http://localhost:5000/${existingProfile.profilePhoto.filePath}`}
+                  src={`https://invedat.onrender.com/${existingProfile.profilePhoto.filePath}`}
                   alt="Profile"
                   style={styles.profileImage}
                 />

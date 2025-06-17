@@ -29,7 +29,7 @@ const Profile = () => {
     }
 
     axios
-      .get(`http://localhost:5000/api/profile/${userId}`)
+      .get(`https://invedat.onrender.com/api/profile/${userId}`)
       .then((res) => {
         if (res.data.isProfileComplete) {
           setProfile(res.data.profile);
@@ -80,13 +80,13 @@ const Profile = () => {
       let response;
       if (profileExists) {
         response = await axios.put(
-          `http://localhost:5000/api/profile/${userId}`,
+          `https://invedat.onrender.com/api/profile/${userId}`,
           payload,
           { headers: { "Content-Type": "application/json" } }
         );
       } else {
         response = await axios.post(
-          "http://localhost:5000/api/profile",
+          "https://invedat.onrender.com/api/profile",
           payload,
           { headers: { "Content-Type": "application/json" } }
         );

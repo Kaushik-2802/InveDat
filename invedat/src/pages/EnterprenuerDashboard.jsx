@@ -60,7 +60,7 @@ const EntrepreneurDashboard = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/profile/${userId}`);
+        const response = await axios.get(`https://invedat.onrender.com/api/profile/${userId}`);
         setIsProfileComplete(response.data.isProfileComplete);
         setProfile(response.data.profile || {});
       } catch (err) {

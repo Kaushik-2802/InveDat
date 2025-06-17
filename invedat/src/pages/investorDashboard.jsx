@@ -13,7 +13,7 @@ const InvestorDashboard = () => {
   const domainTypes = ["All", ...new Set(projects.map(project => project.domainType))];
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/projects")
+    fetch("https://invedat.onrender.com/api/projects")
       .then((res) => res.json())
       .then((data) => {
         const projectArray = Array.isArray(data) ? data : data.projects;
