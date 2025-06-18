@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // CSS styles defined inline
@@ -107,6 +107,7 @@ const Register = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const navigate=useNavigate()
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -128,6 +129,12 @@ const Register = () => {
       setSuccess("Registration successful");
       setError("");
       console.log(res.data);
+      if(role=="Enterpreneur"){
+        navigate("/enterprenuer-login")
+      }
+      else{
+        navigate("/investor-login")
+      }
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");
       setSuccess("");
